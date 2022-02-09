@@ -6,12 +6,17 @@
         <exploded>true</exploded>
         <module>Spotitube</module>
         <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Spotitube" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0" />
+          <element id="library" level="project" name="Maven: com.microsoft.sqlserver:mssql-jdbc:9.4.0.jre11" />
         </element>
       </element>
       <element id="directory" name="META-INF">
