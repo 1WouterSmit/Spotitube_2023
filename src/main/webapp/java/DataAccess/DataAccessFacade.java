@@ -2,13 +2,22 @@ package DataAccess;
 
 import DataAccess.DataMapper.SongMapper;
 import Domain.*;
+import Service.Login;
+import Service.Token;
 
 import javax.inject.Inject;
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataAccessFacade implements IDataAccess{
     private SongMapper songMapper;
+    private static DataAccessFacade DAF;
+
+    public static DataAccessFacade getInstance() {
+        if (DAF == null) DAF = new DataAccessFacade();
+        return DAF;
+    }
 
     @Inject
     public void setSongMapper(SongMapper songMapper) {
@@ -17,6 +26,14 @@ public class DataAccessFacade implements IDataAccess{
 
     public DataAccessFacade() {
         songMapper = new SongMapper();
+    }
+
+    public boolean checkCredentials(Login login) {
+        if(login.getUser().equalsIgnoreCase("Meron") &&
+        login.getPassword().equalsIgnoreCase("MySuperSecretPassword12341")) {
+            return true;
+        }
+        else return false;
     }
 
     @Override

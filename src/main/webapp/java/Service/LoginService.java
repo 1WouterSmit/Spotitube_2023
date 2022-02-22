@@ -1,12 +1,16 @@
 package Service;
 
 
+import DataAccess.DataAccessFacade;
+
 import java.util.UUID;
 
 public class LoginService {
-    public Token attemptLogin(String username, String password) {
+    public Token attemptLogin(Login login) {
         String tokenUUID = UUID.randomUUID().toString();
-        Token token = new Token(tokenUUID, "Meron"+" "+"Brouwer");
-        return token;
+        if(DataAccessFacade.getInstance().checkCredentials(login)) {
+            return new Token(tokenUUID, "Meron" + " " + "Brouwer");
+        }
+        return null;
     }
 }

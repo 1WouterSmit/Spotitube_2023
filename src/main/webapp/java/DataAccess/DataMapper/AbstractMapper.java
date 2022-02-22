@@ -1,13 +1,12 @@
 package DataAccess.DataMapper;
 
-public abstract class AbstractMapper {
-	//private SQLDatabaseConnection con;
+import DataAccess.DB;
 
-	/*@Inject
-	public void setCon(SQLDatabaseConnection con) {
-		this.con = con;
+import java.sql.Connection;
+
+public abstract class AbstractMapper {
+
+	protected Connection conn() {
+		return DB.connection();
 	}
-	protected SQLDatabaseConnection getCon() {
-		return con;
-	}*/
 }

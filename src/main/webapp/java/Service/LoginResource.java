@@ -17,12 +17,13 @@ public class LoginResource {
     }
 
     @POST
-    //@Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Token attemptLogin(/*Login login*/) {
+    public Token attemptLogin(Login login) {
         //Token token = new Token("1234-1234-1234-1234", "Meron Brouwer");
-        Login login = new Login("Meron", "password");
-        return loginService.attemptLogin(login.getUser(), login.getPassword());
+        //Login login = new Login("Meron", "password");
+        //return new Token("123-123-123", login.getUser());
+        return loginService.attemptLogin(login);
     }
 
     @GET

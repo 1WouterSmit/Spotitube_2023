@@ -18,7 +18,7 @@ public class SongMapper extends AbstractMapper {
 	}
 	private Song retrieveSong(int id) {
 		try {
-			PreparedStatement ps = DB.connection().prepareStatement(
+			PreparedStatement ps = conn().prepareStatement(
 					"SELECT * "+
 							"FROM Tracks "+
 							"INNER JOIN Songs ON Tracks.id = Songs.id "+
