@@ -1,4 +1,4 @@
-package JSONDTO;
+/* package JSONDTO;
 
 import Domain.Playlist;
 import org.junit.Test;
@@ -31,4 +31,4 @@ public class PlaylistAssemblerTest {
 		assertEquals(102, playlist.getID());
 		assertEquals("testPlaylist02", playlist.getName());
 	}
-}
+}*/

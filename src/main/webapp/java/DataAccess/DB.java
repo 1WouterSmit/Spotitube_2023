@@ -10,16 +10,17 @@ public class DB {
 	private static DB dbCon;
 	private Connection con;
 
-    public DB() {
+    private DB() {
 		try {
 			Properties properties = new Properties();
-			properties.load(DB.class.getClassLoader().getResourceAsStream("database.properties"));
+			properties.load(DB.class.getClassLoader().getResourceAsStream("databaseMysql.properties"));
 
-			con = DriverManager.getConnection(properties.getProperty("db_url"),
-					properties.getProperty("user"),
+			Class.forName(properties.getProperty("driver"));
+			con = DriverManager.getConnection(properties.getProperty("db_url")+"?user="+
+					properties.getProperty("user") + "&password=" +
 					properties.getProperty("pw"));
-		} catch(SQLException | IOException e) {
-			e.printStackTrace();
+		} catch(SQLException | IOException | ClassNotFoundException e) {
+			//e.printStackTrace();
 		}
 	}
 

@@ -5,12 +5,14 @@ import java.util.List;
 
 public class PlaylistsDTO {
     private PlaylistDTO[] playlists;
+
     private int length;
 
     public PlaylistsDTO(PlaylistDTO[] playlists, int length) {
         this.playlists = playlists;
         this.length = length;
     }
+
 
     public PlaylistsDTO(List<PlaylistDTO> playlists, int length) {
         this.playlists = new PlaylistDTO[playlists.size()];
@@ -19,6 +21,7 @@ public class PlaylistsDTO {
             this.playlists[i] = playlists.get(i);
             i++;
         }
+        this.length = length;
     }
 
     public PlaylistDTO[] getPlaylists() {

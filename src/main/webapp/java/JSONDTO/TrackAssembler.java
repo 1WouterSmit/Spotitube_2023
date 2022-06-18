@@ -1,26 +1,39 @@
 package JSONDTO;
 
-import Domain.Song;
 import Domain.Track;
-import Domain.Video;
+
+import java.util.ArrayList;
 
 public class TrackAssembler {
 
     public TrackDTO assembleTrackDTO(Track track) {
-        TrackDTO trackDTO;
+        return new TrackDTO(track.getId(), track.getTitle(), track.getPerformer(), track.getDuration(),
+                track.getAlbum(), track.getPlaycount(), track.getPublicationDate(), track.getDescription(),
+                track.isAvailableOffline());
 
-        if(track instanceof Song) {
+    }
 
-            Song song = (Song)track;
-            trackDTO = new TrackDTO(song.getId(), song.getTitle(), song.getPerformer(), song.getDuration(),
-                    song.getAlbum(), song.isOfflineAvailable());
-        } else {
+    public TracksDTO assembleTracksDTO(ArrayList<Track> tracks) {
+        ArrayList<TrackDTO> trackDTOS = new ArrayList<>();
 
-            Video video = (Video)track;
-            trackDTO = new TrackDTO(video.getId(), video.getTitle(), video.getPerformer(), video.getDuration(),
-                    video.getPlaycount(), video.getPublicationDate(), video.getDescription(), video.isOfflineAvailable());
+        for(Track track : tracks) {
+            trackDTOS.add(assembleTrackDTO(track));
         }
 
-        return trackDTO;
+        return new TracksDTO(trackDTOS.toArray(new TrackDTO[0]));
+    }
+
+    public Track disassembleTrackDTO(TrackDTO trackDTO) {
+        Track track = new Track();
+        track.setId(trackDTO.getId());
+        track.setTitle(trackDTO.getTitle());
+        track.setPerformer(trackDTO.getPerformer());
+        track.setDuration(trackDTO.getDuration());
+        track.setAlbum(trackDTO.getAlbum());
+        track.setPlaycount(trackDTO.getPlaycount());
+        track.setPublicationDate(trackDTO.getPublicationDate());
+        track.setDescription(trackDTO.getDescription());
+        track.setAvailableOffline(trackDTO.isOfflineAvailable());
+        return track;
     }
 }

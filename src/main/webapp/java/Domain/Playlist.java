@@ -2,19 +2,19 @@ package Domain;
 
 import java.util.ArrayList;
 
-public class Playlist {
-    private int id;
-    private String name, owner;
+public class Playlist implements DomainObject{
+    private Long id, owner;
+    private String name;
     private ArrayList<Track> tracks;
 
-    public Playlist(int id, String name, String owner) {
+    public Playlist(Long id, String name, Long owner) {
         this.id = id;
         this.name = name;
         this.owner = owner;
         tracks = new ArrayList<>();
     }
 
-    public Playlist(int id, String name, String owner, ArrayList<Track> tracks) {
+    public Playlist(Long id, String name, Long owner, ArrayList<Track> tracks) {
         this.id = id;
         this.name = name;
         this.owner = owner;
@@ -33,11 +33,11 @@ public class Playlist {
         return tracks.contains(track);
     }
 
-    public int getID() {
+    public Long getID() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,7 +45,7 @@ public class Playlist {
         return name;
     }
 
-    public String getOwner() {
+    public Long getOwner() {
         return owner;
     }
 
@@ -57,7 +57,7 @@ public class Playlist {
         this.name = name;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(Long owner) {
         this.owner = owner;
     }
 

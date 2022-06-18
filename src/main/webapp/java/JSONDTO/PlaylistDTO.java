@@ -1,23 +1,33 @@
 package JSONDTO;
 
 public class PlaylistDTO {
-    private int id;
+    private Long id;
     private String name;
     private boolean owner;
     private TrackDTO[] tracks;
 
-    public PlaylistDTO(int id, String name, boolean owner, TrackDTO[] tracks) {
+    public PlaylistDTO() {}
+
+    public PlaylistDTO(Long id, String name, boolean owner, TrackDTO[] tracks) {
         this.id = id;
         this.name = name;
         this.owner = owner;
         this.tracks = tracks;
     }
 
-    public int getId() {
+    /*public int getLength() {
+        int length = 0;
+        for(TrackDTO trackDTO : tracks) {
+            length += trackDTO.getDuration();
+        }
+        return length;
+    }*/
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
