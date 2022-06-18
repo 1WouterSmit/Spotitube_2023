@@ -1,7 +1,6 @@
 package DataAccess.Mapper;
 
 import DataAccess.DB;
-import Domain.DomainObject;
 import Domain.Track;
 
 import java.sql.PreparedStatement;
@@ -9,22 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class TrackMapper extends AbstractMapper {
-	private static final String COLUMNS_TRACKS = "id, title, performer, duration, album, playcount, publication_date, " +
-			"description";
-	private static final String COLUMNS_PLAYLIST_TRACKS = "playlist_id, track_id";
-
-	public TrackMapper() {
-		super("", new String[]{"", ""});
-		//loadedMap = new HashMap<Long , Track>();
-	}
-
-	@Override
-	protected String findStatement() {
-		return "SELECT " + COLUMNS_TRACKS + " " +
-				"FROM tracks " +
-				"WHERE id = ?";
-	}
+public class TrackMapper {
 
 	protected String findAllInPLStatement() {
 		return "SELECT * " +
@@ -43,8 +27,7 @@ public class TrackMapper extends AbstractMapper {
 				"WHERE playlist_id = ?)";
 	}
 
-	@Override
-	protected Track doLoad(Long id, ResultSet rs) throws SQLException {
+	protected Track load(ResultSet rs) throws SQLException {
 		Track track = new Track();
 		track.setId(rs.getLong("id"));
 		track.setTitle(rs.getString("title"));
@@ -61,10 +44,6 @@ public class TrackMapper extends AbstractMapper {
 		track.setPublicationDate(rs.getString("publication_date"));
 		track.setDescription(rs.getString("description"));
 		return track;
-	}
-
-	public Track findTrack(Long id) throws SQLException {
-		return (Track) abstractFind(id);
 	}
 
 	public ArrayList<Track> findAllInPlaylist(Long playlistId) throws SQLException {
@@ -86,21 +65,14 @@ public class TrackMapper extends AbstractMapper {
 	private ArrayList<Track> getTrackListFromSet(ResultSet rs) throws SQLException {
 		ArrayList<Track> tracks = new ArrayList<>();
 		while(rs.next()) {
-			Track track = doLoad(rs.getLong(1), rs);
+			Track track = load(rs);
 			tracks.add(track);
 		}
 		return tracks;
 	}
 
-	@Override
-	protected String updateStatement(String column) {
-		return "UPDATE songs" +
-				" SET "+ column + " = ?" +
-				" WHERE id = ?";
-	}
-
 	protected String addToPlaylistStatement() {
-		return "INSERT INTO playlist_tracks (" + COLUMNS_PLAYLIST_TRACKS + ")" +
+		return "INSERT INTO playlist_tracks (playlist_id, track_id)" +
 				" VALUES (?, ?)";
 	}
 

@@ -29,7 +29,7 @@ public class TracksResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTracksForPlaylist(@QueryParam("token") String token, @QueryParam("forPlaylist") Long playlistId) {
         try {
-            Long userId = loginService.checkToken(token);
+            loginService.checkToken(token);
             TracksDTO dto = trackService.getTrackListForPlaylist(playlistId);
             return Response.ok(Response.Status.OK)
                     .entity(dto)

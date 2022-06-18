@@ -10,24 +10,25 @@ public class DB {
 	private static DB dbCon;
 	private Connection con;
 
-    private DB() {
-		try {
-			Properties properties = new Properties();
-			properties.load(DB.class.getClassLoader().getResourceAsStream("databaseMysql.properties"));
+    private DB() throws IOException, ClassNotFoundException, SQLException {
+		Properties properties = new Properties();
+		properties.load(DB.class.getClassLoader().getResourceAsStream("databaseMysql.properties"));
 
-			Class.forName(properties.getProperty("driver"));
-			con = DriverManager.getConnection(properties.getProperty("db_url")+"?user="+
-					properties.getProperty("user") + "&password=" +
-					properties.getProperty("pw"));
-		} catch(SQLException | IOException | ClassNotFoundException e) {
-			//e.printStackTrace();
-		}
+		Class.forName(properties.getProperty("driver"));
+		con = DriverManager.getConnection(properties.getProperty("db_url")+"?user="+
+				properties.getProperty("user") + "&password=" +
+				properties.getProperty("pw"));
+
 	}
 
 
-	public static Connection connection() {
-		if(dbCon == null) dbCon = new DB();
-		return dbCon.getConnection();
+	public static Connection connection() throws SQLException {
+		try {
+			if(dbCon == null) dbCon = new DB();
+			return dbCon.getConnection();
+		} catch (SQLException | ClassNotFoundException | IOException e) {
+			throw new SQLException(e);
+		}
 	}
 
 	private Connection getConnection() {

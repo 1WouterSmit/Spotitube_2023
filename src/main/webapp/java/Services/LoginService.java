@@ -7,10 +7,9 @@ import Exceptions.AuthenticationException;
 import javax.inject.Inject;
 import java.sql.SQLException;
 import java.util.UUID;
-
+// 7a670e2f-b074-4082-aca9-86b9e41d498f
 public class LoginService {
     private UserMapper userMapper;
-
     @Inject
     public void setUserMapper(UserMapper UM) {
         userMapper = UM;

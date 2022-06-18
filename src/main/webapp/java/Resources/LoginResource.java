@@ -28,12 +28,6 @@ public class LoginResource {
             Token token = loginService.attemptLogin(login);
             return Response.ok(Response.Status.OK)
                     .entity(token)
-                    .header("Access-Control-Allow-Origin", "*")
-                    .header("Access-Control-Allow-Credentials", "true")
-                    .header("Access-Control-Allow-Headers",
-                            "origin, content-type, accept, authorization")
-                    .header("Access-Control-Allow-Methods",
-                            "GET, POST, PUT, DELETE, OPTIONS, HEAD")
                     .build();
         } catch (AuthenticationException e) {
             return Response.status(Response.Status.UNAUTHORIZED).build();

@@ -102,7 +102,7 @@ public class PlaylistsResource {
         }
     }
 
-    @Path("/{playlist_id}")
+    @Path("/{playlist_id}/tracks")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getTracksFromPlaylist(@QueryParam("token") String token, @PathParam("playlist_id") Long playlistId) {
@@ -125,7 +125,7 @@ public class PlaylistsResource {
     public Response addTrackToPlaylist(@QueryParam("token") String token, @PathParam("playlistId") Long playlistId,
                                        TrackDTO trackDTO) {
         try {
-            Long userId = loginService.checkToken(token);
+            loginService.checkToken(token);
             trackService.addTrackToPlaylist(playlistId, trackDTO);
             TracksDTO dto = trackService.getTrackListFromPlaylist(playlistId);
             return buildResponseWithDTO(dto);

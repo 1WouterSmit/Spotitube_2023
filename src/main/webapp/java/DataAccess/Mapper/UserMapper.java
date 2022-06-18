@@ -17,43 +17,28 @@ public class UserMapper {
 				" WHERE username = ?";
 	}
 
-	protected String findStatement(String column1, String column2) {
-		return "SELECT " + COLUMNS +
-				" FROM users" +
-				" WHERE "+ column1 +" = ?" +
-				" AND "+ column2 +" = ?";
-	}
-
 	protected String findByTokenStatement() {
 		return "SELECT " + COLUMNS +
 				" FROM users " +
 				" WHERE token = ?";
 	}
 
-	protected String updateStatement(String column) {
+	protected String updateStatement() {
 		return "UPDATE users" +
-				" SET "+ column +" = ?" +
+				" SET token = ?" +
 				" WHERE id = ?";
 	}
 
 	public User find(String username) throws SQLException {
-		User result;
-		PreparedStatement findStatement;
-
-		try {
-			findStatement = DB.connection().prepareStatement(findStatement());
-			findStatement.setString(1, username);
-			ResultSet rs = findStatement.executeQuery();
-			rs.next();
-			result = doLoad(username, rs);
-			return result;
-		} catch (SQLException e) {
-			throw new SQLException(e);
-		}
+		PreparedStatement findStatement = DB.connection().prepareStatement(findStatement());
+		findStatement.setString(1, username);
+		ResultSet rs = findStatement.executeQuery();
+		rs.next();
+		return doLoad(username, rs);
 	}
 
 	protected void update(String value, Long userId) throws SQLException {
-		PreparedStatement updateTokenStatement = DB.connection().prepareStatement(updateStatement("token"));
+		PreparedStatement updateTokenStatement = DB.connection().prepareStatement(updateStatement());
 		updateTokenStatement.setString(1, value);
 		updateTokenStatement.setLong(2, userId);
 		updateTokenStatement.executeUpdate();

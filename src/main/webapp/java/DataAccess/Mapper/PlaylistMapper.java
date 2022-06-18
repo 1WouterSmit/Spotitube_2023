@@ -1,37 +1,24 @@
 package DataAccess.Mapper;
 
 import DataAccess.DB;
-import Domain.DomainObject;
 import Domain.Playlist;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class PlaylistMapper extends AbstractMapper {
+public class PlaylistMapper {
 	public static final String COLUMNS = "id, name, owner";
-
-	public PlaylistMapper() {
-		super("playlists", new String[]{"id", "name", "owner"});
-	}
-
-	protected String findStatement() {
-		return "SELECT " + COLUMNS +
-				" FROM playlists" +
-				" WHERE id = ?";
-	}
 
 	protected String findAllStatement() {
 		return "SELECT * " +
 				"FROM playlists";
 	}
 
-	@Override
-	protected String updateStatement(String column) {
+	protected String updateStatement() {
 		return "UPDATE playlists" +
-				" SET "+ column + " = ?" +
+				" SET name = ?" +
 				" WHERE id = ?";
 	}
 
@@ -45,8 +32,7 @@ public class PlaylistMapper extends AbstractMapper {
 				"VALUES (?, ?, ?)";
 	}
 
-	@Override
-	protected Playlist doLoad(Long id, ResultSet rs) throws SQLException {
+	protected Playlist load(ResultSet rs) throws SQLException {
 		return new Playlist(rs.getLong("id"),
 		rs.getString("name"),
 		rs.getLong("owner"));
@@ -62,7 +48,7 @@ public class PlaylistMapper extends AbstractMapper {
 		ArrayList<Playlist> playlists = new ArrayList<>();
 		ResultSet rs = DB.connection().prepareStatement(findAllStatement()).executeQuery();
 		while(rs.next()) {
-			playlists.add((Playlist)load(rs));
+			playlists.add(load(rs));
 		}
 		return playlists;
 	}
@@ -77,9 +63,21 @@ public class PlaylistMapper extends AbstractMapper {
 	}
 
 	public void updateName(Long id, String name) throws SQLException {
-		PreparedStatement editNameStatement = DB.connection().prepareStatement(updateStatement("NAME"));
+		PreparedStatement editNameStatement = DB.connection().prepareStatement(updateStatement());
 		editNameStatement.setString(1, name);
 		editNameStatement.setLong(2, id);
 		editNameStatement.execute();
+	}
+
+	protected Long getNewId() throws SQLException {
+		PreparedStatement highestIdStatement = DB.connection().prepareStatement(findHighestIdStatement());
+		ResultSet rs = highestIdStatement.executeQuery();
+		rs.next();
+		return 1 + rs.getLong("ID");
+	}
+
+	protected String findHighestIdStatement() {
+		return "SELECT MAX(ID) as ID " +
+				"FROM playlists";
 	}
 }
