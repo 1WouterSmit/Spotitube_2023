@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: Resources.TracksResourceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in Resources.TracksResourceTest
+Resources.TracksResourceTest.testCorrect()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Resources.TracksResource.getTracksForPlaylist(String, java.lang.Long)" because "this.tracksRes" is null
+	at Resources.TracksResourceTest.testCorrect(TracksResourceTest.java:49)
+
+Resources.TracksResourceTest.testWrongToken()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Resources.TracksResource.getTracksForPlaylist(String, java.lang.Long)" because "this.tracksRes" is null
+	at Resources.TracksResourceTest.testWrongToken(TracksResourceTest.java:63)
+
+Resources.TracksResourceTest.testWrongPlaylist()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Resources.TracksResource.getTracksForPlaylist(String, java.lang.Long)" because "this.tracksRes" is null
+	at Resources.TracksResourceTest.testWrongPlaylist(TracksResourceTest.java:57)
+

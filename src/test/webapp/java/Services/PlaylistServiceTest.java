@@ -1,6 +1,6 @@
 package Services;
 
-import DataAccess.Mapper.PlaylistMapper;
+import DataAccess.MapperMySQL.PlaylistMapperImpl;
 import Domain.Playlist;
 import Domain.Track;
 import JSONDTO.PlaylistAssembler;
@@ -23,13 +23,13 @@ class PlaylistServiceTest {
 
 	@BeforeEach
 	public void setup() {
-		PlaylistMapper playlistMapper = new PlaylistMapper() {
+		PlaylistMapperImpl playlistMapperImpl = new PlaylistMapperImpl() {
 			boolean added = false;
 			boolean deleted = false;
 			boolean edited = false;
 
 			@Override
-			public ArrayList<Playlist> findAll() throws SQLException {
+			public ArrayList<Playlist> getAllPlaylists() throws SQLException {
 				Playlist p1 = new Playlist((long)1, "playlist1", VALIDUSERID);
 				Playlist p2 = new Playlist((long)2, "playlist2", VALIDUSERID2);
 				Playlist p3 = new Playlist((long)3, "playlist3", VALIDUSERID);
@@ -42,7 +42,7 @@ class PlaylistServiceTest {
 				return playlists;
 			}
 			@Override
-			public void updateName(Long id, String name) throws SQLException {
+			public void updatePlaylistName(Long id, String name) throws SQLException {
 				if(id != 1 || name == null) throw new SQLException();
 				edited = true;
 			}
@@ -72,7 +72,7 @@ class PlaylistServiceTest {
 			}
 		};
 		plSer = new PlaylistService();
-		plSer.setPlaylistMapper(playlistMapper);
+		plSer.setPlaylistMapper(playlistMapperImpl);
 		plSer.setPlaylistAssembler(playlistAssembler);
 		plSer.setTrackService(trackService);
 	}

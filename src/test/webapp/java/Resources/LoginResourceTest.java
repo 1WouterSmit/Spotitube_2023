@@ -20,12 +20,12 @@ public class LoginResourceTest {
 	String username = "steve";
 	String password = "ThisIsNotSteve";
 	String validToken = "123-123-123-123";
-	LoginService loginService;
+	//LoginService loginService;
 	LoginResource loginRes;
 
 	@BeforeAll
 	public void setup() {
-		loginService = new LoginService() {
+		LoginService loginService = new LoginService() {
 			@Override
 			public Token attemptLogin(Login login) throws AuthenticationException, SQLException {
 				if(username.equals(login.getUser()) && password.equals(login.getPassword())) {

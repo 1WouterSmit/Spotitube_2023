@@ -1,6 +1,6 @@
 package Services;
 
-import DataAccess.Mapper.TrackMapper;
+import DataAccess.MapperMySQL.TrackMapperImpl;
 import Domain.Track;
 import JSONDTO.TrackAssembler;
 import JSONDTO.TrackDTO;
@@ -19,9 +19,9 @@ class TrackServiceTest {
 
 	@BeforeEach
 	public void setup() {
-		TrackMapper trackMapper = new TrackMapper() {
+		TrackMapperImpl trackMapperImpl = new TrackMapperImpl() {
 			@Override
-			public ArrayList<Track> findAllInPlaylist(Long playlistId) throws SQLException {
+			public ArrayList<Track> getAllTracksInPlaylist(Long playlistId) throws SQLException {
 				if(playlistId != 1) throw new SQLException();
 
 				ArrayList<Track> tracks = new ArrayList<>();
@@ -57,7 +57,7 @@ class TrackServiceTest {
 				return tracks;
 			}
 			@Override
-			public ArrayList<Track> findAllNotInPlaylist(Long playlistId) throws SQLException {
+			public ArrayList<Track> getAllTracksNotInPlaylist(Long playlistId) throws SQLException {
 				if(playlistId != 1) throw new SQLException();
 				ArrayList<Track> tracks = new ArrayList<>();
 				Track t4,t5;
@@ -145,7 +145,7 @@ class TrackServiceTest {
 			}
 		};
 		trSer = new TrackService();
-		trSer.setTrackMapper(trackMapper);
+		trSer.setTrackMapper(trackMapperImpl);
 		trSer.setTrackAssembler(trackAssembler);
 	}
 
@@ -157,9 +157,7 @@ class TrackServiceTest {
 
 	@Test
 	public void testInvalidTrackIdTrackListFromPL() {
-		Assertions.assertThrows(SQLException.class, () -> {
-			TracksDTO tracksDTO = trSer.getTrackListFromPlaylist((long)9);
-		});
+		Assertions.assertThrows(SQLException.class, () -> trSer.getTrackListFromPlaylist((long)9));
 	}
 
 	@Test
@@ -172,9 +170,7 @@ class TrackServiceTest {
 
 	@Test
 	public void getTracksFromInvalidPlaylist() {
-		Assertions.assertThrows(SQLException.class, () -> {
-			trSer.getTracksFromPlaylist((long)7);
-		});
+		Assertions.assertThrows(SQLException.class, () -> trSer.getTracksFromPlaylist((long)7));
 	}
 
 	@Test
@@ -185,9 +181,7 @@ class TrackServiceTest {
 
 	@Test
 	public void testInvalidTrackIdTrackListForPL() {
-		Assertions.assertThrows(SQLException.class, () -> {
-			TracksDTO tracksDTO = trSer.getTrackListFromPlaylist((long)9);
-		});
+		Assertions.assertThrows(SQLException.class, () -> trSer.getTrackListFromPlaylist((long)9));
 	}
 
 	@Test
@@ -199,9 +193,7 @@ class TrackServiceTest {
 
 	@Test
 	public void getTracksForInvalidPlaylist() {
-		Assertions.assertThrows(SQLException.class, () -> {
-			trSer.getTracksFromPlaylist((long)7);
-		});
+		Assertions.assertThrows(SQLException.class, () -> trSer.getTracksFromPlaylist((long)7));
 	}
 
 	@Test
@@ -231,12 +223,12 @@ class TrackServiceTest {
 	}
 
 	@Test
-	public void removeTrackFromInvalidPL() throws SQLException {
+	public void removeTrackFromInvalidPL() {
 		Assertions.assertThrows(SQLException.class, () -> trSer.removeTrackFromPlaylist((long)6, (long)3));
 	}
 
 	@Test
-	public void removeTrackNotInPL() throws SQLException {
+	public void removeTrackNotInPL() {
 		Assertions.assertThrows(SQLException.class, () -> trSer.removeTrackFromPlaylist((long)1, (long)4));
 	}
 }

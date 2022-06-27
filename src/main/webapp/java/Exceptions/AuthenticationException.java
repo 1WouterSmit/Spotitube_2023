@@ -4,7 +4,7 @@ public class AuthenticationException extends Exception {
 	private String message;
 
 	public AuthenticationException(String message) {
-		super();
+		super("");
 		this.message = message;
 	}
 

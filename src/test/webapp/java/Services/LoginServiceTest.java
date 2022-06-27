@@ -1,8 +1,9 @@
 package Services;
 
-import DataAccess.Mapper.UserMapper;
+import DataAccess.MapperMySQL.UserMapperImpl;
 import Domain.User;
 import Exceptions.AuthenticationException;
+import Services.IMappers.UserMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ public class LoginServiceTest {
 
 	@BeforeAll
 	public void setup() {
-		UserMapper userMapper = new UserMapper() {
+		UserMapper userMapper = new UserMapperImpl() {
 			@Override
 			public Long checkCredentials(String user, String pass) throws AuthenticationException, SQLException {
 				if (username.equals(user) && password.equals(pass)) {
@@ -33,12 +34,12 @@ public class LoginServiceTest {
 				else throw new AuthenticationException();
 			}
 			@Override
-			public User find(String user_name) throws SQLException {
+			public User getUser(String user_name) throws SQLException {
 				if (user_name.equals(username)) return new User(userid, username, fullname, password, validToken);
 				else throw new SQLException();
 			}
 			@Override
-			public void insertToken(Long user_id, String tokenString) throws SQLException {
+			public void updateToken(Long user_id, String tokenString) throws SQLException {
 				if (!user_id.equals(userid)) throw new SQLException();
 			}
 			@Override
@@ -69,25 +70,19 @@ public class LoginServiceTest {
 	@Test
 	public void attemptBadNameLogin() {
 		Login login = new Login("schmeve", password);
-		Assertions.assertThrows(AuthenticationException.class, () -> {
-			loginService.attemptLogin(login);
-		});
+		Assertions.assertThrows(AuthenticationException.class, () -> loginService.attemptLogin(login));
 	}
 
 	@Test
 	public void attemptBadPassLogin() {
 		Login login = new Login(username, "Hello world?");
-		Assertions.assertThrows(AuthenticationException.class, () -> {
-			loginService.attemptLogin(login);
-		});
+		Assertions.assertThrows(AuthenticationException.class, () -> loginService.attemptLogin(login));
 	}
 
 	@Test
 	public void testLoginSQLError() {
 		Login login = new Login(sqlError, password);
-		Assertions.assertThrows(SQLException.class, () -> {
-			loginService.attemptLogin(login);
-		});
+		Assertions.assertThrows(SQLException.class, () -> loginService.attemptLogin(login));
 	}
 
 	@Test
@@ -104,16 +99,12 @@ public class LoginServiceTest {
 	@Test
 	public void testBadToken() {
 		String token = "111-222-333-123";
-		Assertions.assertThrows(AuthenticationException.class, () -> {
-			loginService.checkToken(token);
-		});
+		Assertions.assertThrows(AuthenticationException.class, () -> loginService.checkToken(token));
 	}
 
 	@Test
 	public void testTokenSQLError() {
 		String token = sqlError;
-		Assertions.assertThrows(SQLException.class, () -> {
-			loginService.checkToken(token);
-		});
+		Assertions.assertThrows(SQLException.class, () -> loginService.checkToken(token));
 	}
 }
