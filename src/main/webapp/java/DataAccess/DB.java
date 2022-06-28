@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class DB {
     // Connect to your database.
-    // Replace server name, username, and password with your credentials
+
 	private static Connection con;
 
 	private static void connect() throws IOException, ClassNotFoundException, SQLException {

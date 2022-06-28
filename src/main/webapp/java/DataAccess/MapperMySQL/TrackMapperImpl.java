@@ -23,7 +23,7 @@ public class TrackMapperImpl implements TrackMapper {
 				"FROM playlist_tracks " +
 				"LEFT JOIN tracks " +
 				"ON playlist_tracks.track_id = tracks.id " +
-				"HAVING playlist_tracks.playlist_id = ?";
+				"WHERE playlist_tracks.playlist_id = ?";
 	}
 
 	private String findAllNotInPLStatement() {
@@ -58,7 +58,6 @@ public class TrackMapperImpl implements TrackMapper {
 		PreparedStatement getAllInPlaylist = statement(findAllInPLStatement());
 		getAllInPlaylist.setLong(1, playlistId);
 		ResultSet rs = getAllInPlaylist.executeQuery();
-
 		return getTrackListFromSet(rs);
 	}
 
@@ -66,7 +65,6 @@ public class TrackMapperImpl implements TrackMapper {
 		PreparedStatement getAllInPlaylist = statement(findAllNotInPLStatement());
 		getAllInPlaylist.setLong(1, playlistId);
 		ResultSet rs = getAllInPlaylist.executeQuery();
-
 		return getTrackListFromSet(rs);
 	}
 
