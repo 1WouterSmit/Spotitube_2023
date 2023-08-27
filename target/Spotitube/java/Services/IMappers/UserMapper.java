@@ -1,7 +1,7 @@
 package Services.IMappers;
 
 import Domain.User;
-import Exceptions.AuthenticationException;
+import Services.Exceptions.AuthenticationException;
 import java.sql.SQLException;
 
 public interface UserMapper {

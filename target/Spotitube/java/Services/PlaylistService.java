@@ -1,8 +1,10 @@
 package Services;
 
+import Services.JSONDTO.PlaylistAssembler;
+import Services.JSONDTO.PlaylistDTO;
+import Services.JSONDTO.PlaylistsDTO;
 import Services.IMappers.PlaylistMapper;
 import Domain.Playlist;
-import JSONDTO.*;
 
 import javax.inject.Inject;
 import java.sql.SQLException;
@@ -43,4 +45,6 @@ public class PlaylistService {
         Playlist playlist = playlistAssembler.disassemblePlaylistDTO(playlistDTO, userid);
         playlistMapper.updatePlaylistName(playlist.getID(), playlist.getName());
     }
+
+    public PlaylistService() {}
 }

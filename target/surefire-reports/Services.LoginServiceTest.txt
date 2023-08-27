@@ -1,41 +1,44 @@
 -------------------------------------------------------------------------------
 Test set: Services.LoginServiceTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in Services.LoginServiceTest
-Services.LoginServiceTest.testLoginSQLError()  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <java.sql.SQLException> but was: <java.lang.NullPointerException>
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:65)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
-	at Services.LoginServiceTest.testLoginSQLError(LoginServiceTest.java:88)
-Caused by: java.lang.NullPointerException: Cannot invoke "Services.LoginService.attemptLogin(Services.Login)" because "this.loginService" is null
-	at Services.LoginServiceTest.lambda$testLoginSQLError$2(LoginServiceTest.java:89)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
-	... 16 more
-
+Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in Services.LoginServiceTest
 Services.LoginServiceTest.testGoodToken()  Time elapsed: 0 s  <<< FAILURE!
 java.lang.NullPointerException: Cannot invoke "Services.LoginService.checkToken(String)" because "this.loginService" is null
-	at Services.LoginServiceTest.testGoodToken(LoginServiceTest.java:97)
-
-Services.LoginServiceTest.testTokenSQLError()  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <java.sql.SQLException> but was: <java.lang.NullPointerException>
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:65)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
-	at Services.LoginServiceTest.testTokenSQLError(LoginServiceTest.java:115)
-Caused by: java.lang.NullPointerException: Cannot invoke "Services.LoginService.checkToken(String)" because "this.loginService" is null
-	at Services.LoginServiceTest.lambda$testTokenSQLError$4(LoginServiceTest.java:116)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
-	... 16 more
+	at Services.LoginServiceTest.testGoodToken(LoginServiceTest.java:92)
 
 Services.LoginServiceTest.testBadToken()  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <Exceptions.AuthenticationException> but was: <java.lang.NullPointerException>
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:65)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <Services.Exceptions.AuthenticationException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
 	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
-	at Services.LoginServiceTest.testBadToken(LoginServiceTest.java:107)
+	at Services.LoginServiceTest.testBadToken(LoginServiceTest.java:102)
 Caused by: java.lang.NullPointerException: Cannot invoke "Services.LoginService.checkToken(String)" because "this.loginService" is null
-	at Services.LoginServiceTest.lambda$testBadToken$3(LoginServiceTest.java:108)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:55)
-	... 16 more
+	at Services.LoginServiceTest.lambda$testBadToken$3(LoginServiceTest.java:102)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 14 more
+
+Services.LoginServiceTest.testTokenSQLError()  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.sql.SQLException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at Services.LoginServiceTest.testTokenSQLError(LoginServiceTest.java:108)
+Caused by: java.lang.NullPointerException: Cannot invoke "Services.LoginService.checkToken(String)" because "this.loginService" is null
+	at Services.LoginServiceTest.lambda$testTokenSQLError$4(LoginServiceTest.java:108)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 14 more
+
+Services.LoginServiceTest.testLoginSQLError()  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown, expected: <java.sql.SQLException> but was: <java.lang.NullPointerException>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:67)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3082)
+	at Services.LoginServiceTest.testLoginSQLError(LoginServiceTest.java:85)
+Caused by: java.lang.NullPointerException: Cannot invoke "Services.LoginService.attemptLogin(Services.Login)" because "this.loginService" is null
+	at Services.LoginServiceTest.lambda$testLoginSQLError$2(LoginServiceTest.java:85)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	... 14 more
 

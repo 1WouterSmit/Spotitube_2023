@@ -4,7 +4,6 @@ import DataAccess.DB;
 import Domain.Playlist;
 import com.mysql.cj.jdbc.result.ResultSetImpl;
 import org.junit.jupiter.api.Test;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

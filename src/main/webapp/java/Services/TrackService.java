@@ -2,9 +2,9 @@ package Services;
 
 import Services.IMappers.TrackMapper;
 import Domain.Track;
-import JSONDTO.TrackAssembler;
-import JSONDTO.TrackDTO;
-import JSONDTO.TracksDTO;
+import Services.JSONDTO.TrackAssembler;
+import Services.JSONDTO.TrackDTO;
+import Services.JSONDTO.TracksDTO;
 
 import javax.inject.Inject;
 import java.sql.SQLException;

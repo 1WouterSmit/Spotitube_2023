@@ -23,11 +23,8 @@ class TrackMapperImplTest {
 	DB database;
 	Connection connection;
 	PreparedStatement preparedStatement;
-	Track track1;
-	{
-		track1 = new Track(1, "song 1", "performer 1", 170, "album 1", null,
+	Track track1 = new Track(1, "song 1", "performer 1", 170, "album 1", null,
 				null, null, false);
-	}
 
 	@Test
 	void getAllTracksInPlaylist() throws SQLException {

@@ -2,7 +2,7 @@ package Services;
 
 import DataAccess.MapperMySQL.UserMapperImpl;
 import Domain.User;
-import Exceptions.AuthenticationException;
+import Services.Exceptions.AuthenticationException;
 import Services.IMappers.UserMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

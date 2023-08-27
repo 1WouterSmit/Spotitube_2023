@@ -2,7 +2,7 @@ package Services;
 
 import Services.IMappers.UserMapper;
 import Domain.User;
-import Exceptions.AuthenticationException;
+import Services.Exceptions.AuthenticationException;
 
 import javax.inject.Inject;
 import java.sql.SQLException;

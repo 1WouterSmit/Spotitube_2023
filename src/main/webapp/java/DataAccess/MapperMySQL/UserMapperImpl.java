@@ -2,9 +2,8 @@ package DataAccess.MapperMySQL;
 
 import DataAccess.DB;
 import Domain.User;
-import Exceptions.AuthenticationException;
+import Services.Exceptions.AuthenticationException;
 import Services.IMappers.UserMapper;
-import com.mysql.cj.jdbc.PreparedStatementWrapper;
 
 import javax.inject.Inject;
 import java.sql.PreparedStatement;
@@ -37,6 +36,18 @@ public class UserMapperImpl implements UserMapper {
 				" WHERE id = ?";
 	}
 
+	private User load(String username, ResultSet rs) throws SQLException {
+		Long id = rs.getLong(1);
+		String name = rs.getString(3);
+		String password = rs.getString(4);
+		String token = rs.getString(5);
+		return new User(id, username, name, password, token);
+	}
+
+	private PreparedStatement statement(String statement) throws SQLException {
+		return database.connection().prepareStatement(statement);
+	}
+
 	@Override
 	public User getUser(String username) throws SQLException {
 		PreparedStatement findStatement = statement(findStatement());
@@ -44,14 +55,6 @@ public class UserMapperImpl implements UserMapper {
 		ResultSet rs = findStatement.executeQuery();
 		rs.next();
 		return load(username, rs);
-	}
-
-	private User load(String username, ResultSet rs) throws SQLException {
-		Long id = rs.getLong(1);
-		String name = rs.getString(3);
-		String password = rs.getString(4);
-		String token = rs.getString(5);
-		return new User(id, username, name, password, token);
 	}
 
 	@Override
@@ -83,9 +86,5 @@ public class UserMapperImpl implements UserMapper {
 
 		if(rs.next()) return rs.getLong("ID");
 		else throw new AuthenticationException("AuthenticationException: Invalid token.");
-	}
-
-	private PreparedStatement statement(String statement) throws SQLException {
-		return database.connection().prepareStatement(statement);
 	}
 }

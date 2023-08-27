@@ -2,7 +2,7 @@ package DataAccess.MapperMySQL;
 
 import DataAccess.DB;
 import Domain.User;
-import Exceptions.AuthenticationException;
+import Services.Exceptions.AuthenticationException;
 import com.mysql.cj.jdbc.result.ResultSetImpl;
 import org.junit.jupiter.api.*;
 

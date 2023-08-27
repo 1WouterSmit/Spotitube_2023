@@ -1,76 +1,76 @@
 -------------------------------------------------------------------------------
 Test set: Resources.PlaylistsResourceTest
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 18, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in Resources.PlaylistsResourceTest
-Resources.PlaylistsResourceTest.testInvalidTrackIdRemoveTrackFromPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.removeTrackFromPlaylist(String, java.lang.Long, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testInvalidTrackIdRemoveTrackFromPL(PlaylistsResourceTest.java:267)
-
+Tests run: 18, Failures: 18, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in Resources.PlaylistsResourceTest
 Resources.PlaylistsResourceTest.testCorrectAddTrackToPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.addTrackToPlaylist(String, java.lang.Long, JSONDTO.TrackDTO)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testCorrectAddTrackToPL(PlaylistsResourceTest.java:227)
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.addTrackToPlaylist(String, java.lang.Long, Services.JSONDTO.TrackDTO)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testCorrectAddTrackToPL(PlaylistsResourceTest.java:228)
 
-Resources.PlaylistsResourceTest.testCorrectGetAllPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.getAllPlaylists(String)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testCorrectGetAllPL(PlaylistsResourceTest.java:126)
-
-Resources.PlaylistsResourceTest.testWrongTokenGetAllPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.getAllPlaylists(String)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testWrongTokenGetAllPL(PlaylistsResourceTest.java:135)
-
-Resources.PlaylistsResourceTest.testCorrectDeletePlaylist()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.deletePlaylist(String, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testCorrectDeletePlaylist(PlaylistsResourceTest.java:148)
-
-Resources.PlaylistsResourceTest.testInvalidTokenDeletePL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.deletePlaylist(String, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testInvalidTokenDeletePL(PlaylistsResourceTest.java:157)
-
-Resources.PlaylistsResourceTest.testInvalidPlaylistIdDeletePL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.deletePlaylist(String, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testInvalidPlaylistIdDeletePL(PlaylistsResourceTest.java:163)
-
-Resources.PlaylistsResourceTest.testWrongUserIdGetAllPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.getAllPlaylists(String)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testWrongUserIdGetAllPL(PlaylistsResourceTest.java:141)
-
-Resources.PlaylistsResourceTest.testSomeInternalErrorAddPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.addPlaylist(String, JSONDTO.PlaylistDTO)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testSomeInternalErrorAddPL(PlaylistsResourceTest.java:181)
-
-Resources.PlaylistsResourceTest.testCorrectGetFromPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.getTracksFromPlaylist(String, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testCorrectGetFromPL(PlaylistsResourceTest.java:209)
-
-Resources.PlaylistsResourceTest.testInvalidPlaylistIdAddTrackToPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.addTrackToPlaylist(String, java.lang.Long, JSONDTO.TrackDTO)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testInvalidPlaylistIdAddTrackToPL(PlaylistsResourceTest.java:237)
+Resources.PlaylistsResourceTest.testInvalidPlaylistIdAddTrackToPL()  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.addTrackToPlaylist(String, java.lang.Long, Services.JSONDTO.TrackDTO)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testInvalidPlaylistIdAddTrackToPL(PlaylistsResourceTest.java:238)
 
 Resources.PlaylistsResourceTest.testInvalidTrackIdAddTrackToPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.addTrackToPlaylist(String, java.lang.Long, JSONDTO.TrackDTO)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testInvalidTrackIdAddTrackToPL(PlaylistsResourceTest.java:245)
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.addTrackToPlaylist(String, java.lang.Long, Services.JSONDTO.TrackDTO)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testInvalidTrackIdAddTrackToPL(PlaylistsResourceTest.java:246)
 
 Resources.PlaylistsResourceTest.testCorrectRemoveTrackFromPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.removeTrackFromPlaylist(String, java.lang.Long, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testCorrectRemoveTrackFromPL(PlaylistsResourceTest.java:252)
-
-Resources.PlaylistsResourceTest.testWrongPlaylistIdEditPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.editPlaylist(String, java.lang.Long, JSONDTO.PlaylistDTO)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testWrongPlaylistIdEditPL(PlaylistsResourceTest.java:202)
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.removeTrackFromPlaylist(String, java.lang.Long, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testCorrectRemoveTrackFromPL(PlaylistsResourceTest.java:253)
 
 Resources.PlaylistsResourceTest.testInvalidPLidRemoveTrackFromPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.removeTrackFromPlaylist(String, java.lang.Long, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testInvalidPLidRemoveTrackFromPL(PlaylistsResourceTest.java:261)
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.removeTrackFromPlaylist(String, java.lang.Long, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testInvalidPLidRemoveTrackFromPL(PlaylistsResourceTest.java:262)
+
+Resources.PlaylistsResourceTest.testWrongTokenGetAllPL()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.getAllPlaylists(String)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testWrongTokenGetAllPL(PlaylistsResourceTest.java:136)
+
+Resources.PlaylistsResourceTest.testInvalidTokenDeletePL()  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.deletePlaylist(String, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testInvalidTokenDeletePL(PlaylistsResourceTest.java:158)
+
+Resources.PlaylistsResourceTest.testSomeInternalErrorAddPL()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.addPlaylist(String, Services.JSONDTO.PlaylistDTO)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testSomeInternalErrorAddPL(PlaylistsResourceTest.java:182)
+
+Resources.PlaylistsResourceTest.testWrongPlaylistIdEditPL()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.editPlaylist(String, java.lang.Long, Services.JSONDTO.PlaylistDTO)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testWrongPlaylistIdEditPL(PlaylistsResourceTest.java:203)
+
+Resources.PlaylistsResourceTest.testCorrectGetFromPL()  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.getTracksFromPlaylist(String, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testCorrectGetFromPL(PlaylistsResourceTest.java:210)
 
 Resources.PlaylistsResourceTest.testInvalidPlaylistIdGetFromPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.getTracksFromPlaylist(String, java.lang.Long)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testInvalidPlaylistIdGetFromPL(PlaylistsResourceTest.java:218)
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.getTracksFromPlaylist(String, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testInvalidPlaylistIdGetFromPL(PlaylistsResourceTest.java:219)
+
+Resources.PlaylistsResourceTest.testCorrectGetAllPL()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.getAllPlaylists(String)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testCorrectGetAllPL(PlaylistsResourceTest.java:127)
+
+Resources.PlaylistsResourceTest.testWrongUserIdGetAllPL()  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.getAllPlaylists(String)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testWrongUserIdGetAllPL(PlaylistsResourceTest.java:142)
+
+Resources.PlaylistsResourceTest.testCorrectDeletePlaylist()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.deletePlaylist(String, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testCorrectDeletePlaylist(PlaylistsResourceTest.java:149)
+
+Resources.PlaylistsResourceTest.testInvalidPlaylistIdDeletePL()  Time elapsed: 0 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.deletePlaylist(String, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testInvalidPlaylistIdDeletePL(PlaylistsResourceTest.java:164)
 
 Resources.PlaylistsResourceTest.testCorrectEditPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.editPlaylist(String, java.lang.Long, JSONDTO.PlaylistDTO)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testCorrectEditPL(PlaylistsResourceTest.java:189)
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.editPlaylist(String, java.lang.Long, Services.JSONDTO.PlaylistDTO)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testCorrectEditPL(PlaylistsResourceTest.java:190)
 
-Resources.PlaylistsResourceTest.testCorrectAddPL()  Time elapsed: 0 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "Resources.PlaylistsResource.addPlaylist(String, JSONDTO.PlaylistDTO)" because "this.plRes" is null
-	at Resources.PlaylistsResourceTest.testCorrectAddPL(PlaylistsResourceTest.java:171)
+Resources.PlaylistsResourceTest.testCorrectAddPL()  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.addPlaylist(String, Services.JSONDTO.PlaylistDTO)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testCorrectAddPL(PlaylistsResourceTest.java:172)
+
+Resources.PlaylistsResourceTest.testInvalidTrackIdRemoveTrackFromPL()  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "Presentation.Resources.PlaylistsResource.removeTrackFromPlaylist(String, java.lang.Long, java.lang.Long)" because "this.plRes" is null
+	at Resources.PlaylistsResourceTest.testInvalidTrackIdRemoveTrackFromPL(PlaylistsResourceTest.java:268)
 

@@ -2,9 +2,9 @@ package Services;
 
 import DataAccess.MapperMySQL.TrackMapperImpl;
 import Domain.Track;
-import JSONDTO.TrackAssembler;
-import JSONDTO.TrackDTO;
-import JSONDTO.TracksDTO;
+import Services.JSONDTO.TrackAssembler;
+import Services.JSONDTO.TrackDTO;
+import Services.JSONDTO.TracksDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
