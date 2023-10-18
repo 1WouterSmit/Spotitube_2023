@@ -1,7 +1,6 @@
 package Presentation.Resources;
 
 import Services.Exceptions.AuthenticationException;
-import Presentation.Resources.LoginResource;
 import Services.Login;
 import Services.LoginService;
 import Services.Token;

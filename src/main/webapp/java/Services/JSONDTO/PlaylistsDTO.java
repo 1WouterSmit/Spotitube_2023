@@ -1,11 +1,23 @@
 package Services.JSONDTO;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
+@XmlRootElement
 public class PlaylistsDTO {
-    private final PlaylistDTO[] playlists;
+    private PlaylistDTO[] playlists;
 
-    private final int length;
+    private int length;
+
+    public void setPlaylists(PlaylistDTO[] playlists) {
+        this.playlists = playlists;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public PlaylistsDTO() {}
 
     public PlaylistsDTO(PlaylistDTO[] playlists, int length) {
         this.playlists = playlists;

@@ -4,6 +4,7 @@ import Services.IMappers.UserMapper;
 import Domain.User;
 import Services.Exceptions.AuthenticationException;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.sql.SQLException;
 import java.util.UUID;

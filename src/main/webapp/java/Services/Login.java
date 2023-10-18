@@ -1,7 +1,18 @@
 package Services;
 
-public class Login {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.ws.WebServiceRef;
+import java.io.Serializable;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
+public class Login implements Serializable {
+    @XmlElement
     String user;
+    @XmlElement
     String password;
 
     public Login(){}

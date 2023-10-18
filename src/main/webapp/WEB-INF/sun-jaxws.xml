@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints
+        xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+        version="2.0">
+
+    <endpoint
+            name="HelloService"
+            implementation="Presentation.SoapResources.Hello"
+            url-pattern="/soap/hello"/>
+
+    <endpoint
+            name="LoginWebService"
+            implementation="Presentation.SoapResources.LoginWebService"
+            url-pattern="/soap/login"/>
+
+    <endpoint
+            name="PlaylistsWebService"
+            implementation="Presentation.SoapResources.PlaylistsWebService"
+            url-pattern="/soap/playlists"/>
+
+    <endpoint
+            name="TracksWebService"
+            implementation="Presentation.SoapResources.TracksWebService"
+            url-pattern="/soap/tracks"/>
+</endpoints>

@@ -1,5 +1,8 @@
 package Services.JSONDTO;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class PlaylistDTO {
     private Long id;
     private String name;

@@ -1,5 +1,9 @@
 package Services.JSONDTO;
 
+import javax.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class TrackDTO {
     // id title preformer duration album playcount publicationdate description offlineavailable
     private Long id;
@@ -13,6 +17,38 @@ public class TrackDTO {
     private boolean offlineAvailable;
 
     public TrackDTO() {}
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPerformer(String performer) {
+        this.performer = performer;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
+    public void setPlaycount(Long playcount) {
+        this.playcount = playcount;
+    }
+
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setOfflineAvailable(boolean offlineAvailable) {
+        this.offlineAvailable = offlineAvailable;
+    }
 
     public TrackDTO(Long id, String title, String performer, int duration, String album, Long playcount,
                     String publicationDate, String description, boolean offlineAvailable) {

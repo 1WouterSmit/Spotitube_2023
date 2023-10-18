@@ -3,7 +3,6 @@ package Presentation.Resources;
 import Services.Exceptions.AuthenticationException;
 import Services.JSONDTO.TrackDTO;
 import Services.JSONDTO.TracksDTO;
-import Presentation.Resources.TracksResource;
 import Services.LoginService;
 import Services.TrackService;
 import org.junit.jupiter.api.Assertions;

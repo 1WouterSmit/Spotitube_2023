@@ -5,7 +5,6 @@ import Services.JSONDTO.PlaylistDTO;
 import Services.JSONDTO.PlaylistsDTO;
 import Services.JSONDTO.TrackDTO;
 import Services.JSONDTO.TracksDTO;
-import Presentation.Resources.PlaylistsResource;
 import Services.LoginService;
 import Services.PlaylistService;
 import Services.TrackService;
