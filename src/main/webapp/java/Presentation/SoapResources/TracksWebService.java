@@ -1,7 +1,6 @@
 package Presentation.SoapResources;
 
 import DataAccess.DB;
-import DataAccess.MapperMySQL.PlaylistMapperImpl;
 import DataAccess.MapperMySQL.TrackMapperImpl;
 import DataAccess.MapperMySQL.UserMapperImpl;
 import Services.Exceptions.AuthenticationException;
@@ -14,11 +13,6 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
-import javax.ws.rs.GET;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 
 @WebService
